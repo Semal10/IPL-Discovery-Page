@@ -16,6 +16,7 @@ const Main = ({
 }) => {
   const [list, setList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [flag, setFlag] = useState(false);
 
   const handlePageClick = ({ selected: selectedPage }) => {
     setCurrentPage(selectedPage);
@@ -24,6 +25,15 @@ const Main = ({
 
   const PER_PAGE = 30;
   setOffset(currentPage * PER_PAGE);
+
+  if (searchTerm !== "") {
+    if (!flag) {
+      const btn = document.querySelector(`[aria-label*="Page 1"]`);
+      if (btn != null) btn.click();
+      setFlag(true);
+    }
+  }
+
   const filteredData = list.filter((val) => {
     if (
       (date === "" || val.DOB === date) &&
@@ -46,9 +56,9 @@ const Main = ({
     setList(data.players);
   }, []);
 
-  // useEffect(() => {
-  //   setForcePage(0);
-  // }, [list]);
+  useEffect(() => {
+    setFlag(false);
+  }, [searchTerm]);
 
   return (
     <div class="main-side">

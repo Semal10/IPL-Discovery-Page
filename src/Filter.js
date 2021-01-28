@@ -34,7 +34,7 @@ const Filter = ({
     setTempCountry("");
     handleResetPage();
     document.querySelector(".radio-button").checked = false;
-    setOpen(false);
+    if (visualViewport.width < 800) setOpen(false);
   };
 
   const handleSubmit = () => {

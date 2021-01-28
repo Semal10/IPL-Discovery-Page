@@ -11,7 +11,7 @@
 }
 
 .main-side {
-  max-width: 75vw;
+  width: 75vw;
   min-height: 100vh;
   text-align: center;
 }
