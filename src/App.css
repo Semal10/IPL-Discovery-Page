@@ -275,10 +275,14 @@ h1{
   }
   .hamburger{
     display: block;
-    position: relative;
+    position: fixed;
     right: 20px;
     top: 30px;
     z-index: 2000;
   }
   
+  button{
+    margin-top: -10px;
+  }
+
 }
